@@ -1,54 +1,44 @@
-import Form from "../common/Form"
+import React from 'react'
+import Form from '../common/Form'
 
 const Login = () => {
-    const formInputs = [
+
+    const formItems = [
         {
             name: "email",
-            label: "Email:",
+            label: "Email",
             type: "email",
             placeholder: "Enter your email"
-
         },
         {
             name: "password",
-            label: "Password:",
+            label: "Password",
             type: "password",
             placeholder: "Enter a password"
-
         },
+
     ]
 
-    const handleDataSubmit = (e) => {
-        e.preventDefault()
-
-        console.log(formData)
-    }
-
-    const formButtons = [
+    const buttons = [
         {
             title: "Login",
-            style: "bg-blue-700 text-white py-3 rounded-md",
-            action: handleDataSubmit
+            style: "bg-blue-600 text-white py-3 rounded-md",
+            action: () => {}
         },
         {
             title: "Don't have an account?",
-            style: "text-blue-700",
-            action: () => { }
+            style: "",
+            action: () => {}
         },
         {
             title: "Forgot password?",
             style: "text-red-600",
-            action: () => { }
-        }
+            action: () => {}
+        },
     ]
 
-
-
     return (
-        <Form image={{
-            url: "https://cdn.stocksnap.io/img-thumbs/280h/cliff-clouds_IZB4SE5SRJ.jpg",
-            position: "right", style: "w-[450px]"
-        }} containerStyle='w-[850px] mt-12 mx-auto' formStyle="w-[400px] flex flex-col gap-5 border p-10 rounded-md" formInputs={formInputs} formButtons={formButtons} />
+        <Form formItems={formItems} buttons={buttons}/>
     )
 }
 

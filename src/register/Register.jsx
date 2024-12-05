@@ -1,64 +1,51 @@
-import Form from '../common/Form'
+import Form from "../common/Form"
+
 
 const Register = () => {
-    const formInputs = [
+
+    const formItems = [
         {
             name: "firstname",
-            label: "Firstname:",
+            label: "Firstname",
             type: "text",
             placeholder: "Enter your firstname"
         },
         {
             name: "lastname",
-            label: "Lastname:",
+            label: "Lastname",
             type: "text",
             placeholder: "Enter your lastname"
         },
         {
             name: "email",
-            label: "Email:",
+            label: "Email",
             type: "email",
             placeholder: "Enter your email"
-
         },
-
         {
             name: "password",
-            label: "Password:",
+            label: "Password",
             type: "password",
             placeholder: "Enter a password"
-
         },
+
     ]
 
-    const handleDataSubmit = (e) => {
-        e.preventDefault()
-
-        console.log(formData)
-    }
-
-    const formButtons = [
+    const buttons = [
         {
             title: "Register",
-            style: "bg-blue-700 text-white py-3 rounded-md",
-            action: handleDataSubmit
+            style: "bg-blue-600 text-white py-3 rounded-md",
+            action: () => {}
         },
         {
             title: "Already have an account?",
-            style: "text-blue-700",
-            action: () => { }
-        }
+            style: "",
+            action: () => {}
+        },
     ]
 
     return (
-        <Form
-            image={{
-                url: "https://media.stockimg.ai/image/nWT8u_YOQjx5.png",
-                position: "right", style: "w-[450px]"
-            }}
-            containerStyle='w-[850px] mt-12 mx-auto'
-            formStyle="w-[400px] flex flex-col gap-5 border p-10 rounded-md"
-            formInputs={formInputs} formButtons={formButtons} />
+        <Form formItems={formItems} buttons={buttons}/>
     )
 }
 

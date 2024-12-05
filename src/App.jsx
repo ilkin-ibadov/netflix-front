@@ -1,12 +1,13 @@
-import Login from "./login/Login"
-import Register from "./register/Register"
-
+import React from 'react'
+import Register from './register/Register'
+import Login from './login/Login'
 
 const App = () => {
-
   return (
-    // <Register />
-    <Login/>
+    <>
+      <Register />
+      {/* <Login /> */}
+    </>
   )
 }
 

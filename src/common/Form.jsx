@@ -1,7 +1,7 @@
-import { useState } from 'react'
-import FormItem from '../common/FormItem'
+import FormInput from "../common/FormInput"
+import { useEffect, useState } from "react"
 
-const Form = ({ formInputs, formButtons, image, formStyle, containerStyle = '' }) => {
+const Form = ({ formItems, buttons }) => {
     const [formData, setFormData] = useState({})
 
     const handleInputChange = (name, value) => {
@@ -11,17 +11,21 @@ const Form = ({ formInputs, formButtons, image, formStyle, containerStyle = '' }
         }))
     }
 
+    useEffect(() => {
+        console.log(formData)
+    }, [formData])
+
+
     return (
+        <form className="flex flex-col gap-5 max-w-[400px] mx-auto border p-5 mt-12 rounded-md" action="">
+            {
+                formItems.map(item => <FormInput handleInputChange={handleInputChange} name={item.name} label={item.label} type={item.type} placeholder={item.placeholder} />)
+            }
 
-        <div className={`${containerStyle} flex ${image?.position === "left" ? "flex" : "flex-row-reverse"}`}>
-            {image && <img className={image.style} src={image.url} />}
-            <form className={formStyle} action="">
-                {formInputs.map(item => <FormItem label={item.label} name={item.name} type={item.type} handleInputChange={handleInputChange} placeholder={item.placeholder} />)}
-
-                {formButtons.map(button => <button className={button.style} onClick={button.action}>{button.title}</button>)}
-
-            </form>
-        </div>
+            {
+                buttons.map(button => <button onClick={button.action} className={button.style}>{button.title}</button>)
+            }
+        </form>
     )
 }
 
