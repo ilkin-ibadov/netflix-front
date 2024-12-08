@@ -1,34 +1,36 @@
-import React from 'react'
-import Form from '../common/Form'
+import Form from "../common/Form"
+import { useNavigate } from "react-router";
 
 const Login = () => {
+    const navigate = useNavigate()
 
     const formItems = [
         {
-            name: "email",
             label: "Email",
+            name: "email",
             type: "email",
             placeholder: "Enter your email"
         },
         {
-            name: "password",
             label: "Password",
+            name: "password",
             type: "password",
             placeholder: "Enter a password"
         },
-
     ]
 
-    const buttons = [
+    const formButtons = [
         {
             title: "Login",
-            style: "bg-blue-600 text-white py-3 rounded-md",
+            style: "bg-green-700 text-white py-3",
             action: () => {}
         },
         {
             title: "Don't have an account?",
             style: "",
-            action: () => {}
+            action: () => {
+                navigate("/register");
+            }
         },
         {
             title: "Forgot password?",
@@ -38,7 +40,7 @@ const Login = () => {
     ]
 
     return (
-        <Form formItems={formItems} buttons={buttons}/>
+        <Form formItems={formItems} formButtons={formButtons}/>
     )
 }
 

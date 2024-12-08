@@ -1,13 +1,19 @@
-import React from 'react'
-import Register from './register/Register'
-import Login from './login/Login'
+import Homepage from "./homepage/Homepage"
+import Login from "./login/Login"
+import Register from "./register/Register"
+import { BrowserRouter, Routes, Route } from "react-router";
+
 
 const App = () => {
+
   return (
-    <>
-      <Register />
-      {/* <Login /> */}
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 

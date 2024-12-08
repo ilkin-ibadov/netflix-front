@@ -1,51 +1,59 @@
 import Form from "../common/Form"
-
+import { useNavigate } from "react-router"
 
 const Register = () => {
+    const navigate = useNavigate()
 
     const formItems = [
         {
-            name: "firstname",
             label: "Firstname",
+            name: "firstname",
             type: "text",
             placeholder: "Enter your firstname"
         },
         {
-            name: "lastname",
             label: "Lastname",
+            name: "lastname",
             type: "text",
             placeholder: "Enter your lastname"
         },
         {
-            name: "email",
+            label: "Phone",
+            name: "phone",
+            type: "tel",
+            placeholder: "Enter your phone number"
+        },
+        {
             label: "Email",
+            name: "email",
             type: "email",
             placeholder: "Enter your email"
         },
         {
-            name: "password",
             label: "Password",
+            name: "password",
             type: "password",
             placeholder: "Enter a password"
         },
-
     ]
 
-    const buttons = [
+    const formButtons = [
         {
             title: "Register",
-            style: "bg-blue-600 text-white py-3 rounded-md",
-            action: () => {}
+            style: "bg-violet-700 text-white py-3 rounded-md",
+            action: () => { }
         },
         {
             title: "Already have an account?",
-            style: "",
-            action: () => {}
+            style: "text-sm",
+            action: () => {
+                navigate("/login")
+            }
         },
     ]
 
     return (
-        <Form formItems={formItems} buttons={buttons}/>
+        <Form formItems={formItems} formButtons={formButtons} />
     )
 }
 
