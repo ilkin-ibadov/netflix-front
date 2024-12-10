@@ -1,8 +1,14 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import SearchBar from './SearchBar'
 import ProductCard from './ProductCard'
+import { ThemeContext } from '../../App'
+import { useStore } from 'zustand'
+import { themeStore } from '../../common/Store'
+
 
 const Products = () => {
+    // const {theme, setTheme} = useContext(ThemeContext)
+    const { theme, toggle } = useStore(themeStore)
     const [products, setProducts] = useState([])
     const [searchTerm, setSearchTerm] = useState('')
     const [pageSize, setPageSize] = useState(10)
@@ -25,7 +31,7 @@ const Products = () => {
     }, [searchTerm, pageSize])
 
     return (
-        <>
+        <div className={`w-full h-full ${theme === "light" ? "bg-white" : "bg-zinc-500"}`}>
             <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
             <div className='grid grid-cols-3 gap-10 p-10'>
                 {products?.map(product => <ProductCard product={product} />)}
@@ -33,8 +39,7 @@ const Products = () => {
                     setPageSize(prevState => prevState + 5)
                 }} className='text-white bg-red-500 px-5 py-3 w-fit col-span-3 justify-self-center'>View more</button>
             </div>
-
-        </>
+        </div>
     )
 }
 
