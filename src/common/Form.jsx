@@ -1,9 +1,8 @@
 import { useEffect, useState, useContext } from "react"
 import FormInput from "./FormInput"
 
-const Form = ({ formItems, formButtons }) => {
-    const [formData, setFormData] = useState({})
-
+const Form = ({ setFormData, formItems, formButtons }) => {
+    
     const handleInputChange = (name, value) => {
         setFormData(prevState => ({ ...prevState, [name]: value }))
     }
