@@ -1,11 +1,11 @@
-const FormInput = ({label, name, type, placeholder, handleInputChange}) => {
+const FormInput = ({label, name, type, value, placeholder, handleInputChange, inputStyle = "border p-2"}) => {
 return (
  <div className="flex flex-col">
-     <label htmlFor={name}>{label}</label>
-     <input onChange={(e)=> {
+     {label && <label htmlFor={name}>{label}</label>}
+     <input {...(value ? {defaultValue: value} : {})} onChange={(e)=> {
         handleInputChange(e.target.name, e.target.value)
      }} placeholder={placeholder}
-     className="border p-2"
+     className={inputStyle}
      name={name} type={type} />
  </div>
 )

@@ -1,8 +1,7 @@
-import { useEffect, useState, useContext } from "react"
 import FormInput from "./FormInput"
 
-const Form = ({ setFormData, formItems, formButtons }) => {
-    
+const Form = ({ headerText, setFormData, formItems, formButtons, formStyle = "flex flex-col gap-5 max-w-[400px] mx-auto pt-12" }) => {
+
     const handleInputChange = (name, value) => {
         setFormData(prevState => ({ ...prevState, [name]: value }))
     }
@@ -10,9 +9,11 @@ const Form = ({ setFormData, formItems, formButtons }) => {
     return (
         <form onSubmit={(e) => {
             e.preventDefault()
-        }} className={`flex flex-col gap-5 max-w-[400px] mx-auto pt-12`}>
+        }} className={formStyle}>
+            {headerText && <h1 className={headerText.style}>{headerText.title}</h1>}
+
             {
-                formItems.map(item => <FormInput label={item.label} name={item.name} type={item.type} placeholder={item.placeholder} handleInputChange={handleInputChange} />)
+                formItems.map(item => <FormInput value={item?.value} label={item.label} name={item.name} type={item.type} placeholder={item.placeholder} handleInputChange={handleInputChange} inputStyle={item.inputStyle} />)
             }
 
             {

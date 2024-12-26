@@ -1,0 +1,1 @@
+import { footerColumns } from "../../../utils/static";

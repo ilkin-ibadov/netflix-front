@@ -1,31 +1,29 @@
-import Login from "./login/Login"
-import { BrowserRouter, Routes, Route } from "react-router";
-import Homepage from "./homepage/Homepage"
-import Register from "./register/Register";
-import FilteredItems from "./homepage/filteredItems/FilteredItems";
+import Landing from "pages/landing/Landing";
+import SignUp from "pages/signup/Signup";
+import Login from "pages/login/Login";
 import { useStore } from "zustand";
-import { themeStore } from "./common/Store";
-import NotFound from "./common/NotFound";
+import { themeStore } from "common/Store";
+import NotFound from "common/NotFound";
+import { BrowserRouter, Routes, Route } from "react-router";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Homepage from "./pages/homepage/Homepage";
 
 const App = () => {
-  const { accessToken, theme } = useStore(themeStore)
+  const { token } = useStore(themeStore)
 
   return (
-    <div className={`h-full min-h-screen w-full ${theme === "light" ? "bg-white" : "bg-zinc-500"} transition duration-300 ease-in-out`}>
+    <div className={`max-w-[1440px] mx-auto h-full min-h-screen w-full transition duration-300 ease-in-out overflow-hidden`}>
       <BrowserRouter>
         <Routes>
-          {accessToken && <Route path="/" >
-            <Route index element={<Homepage />} />
-            <Route path="filter" element={<FilteredItems />} />
-          </Route>}
-
+          <Route path="/" element={<Landing />} />
+          {token && <Route path="/home" element={<Homepage />} />}
           <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
+
 
       <ToastContainer
         position="top-right"
