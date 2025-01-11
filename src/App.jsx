@@ -1,5 +1,5 @@
 import Landing from "pages/landing/Landing";
-import SignUp from "pages/signup/Signup";
+import SignUp from "pages/signup/SignUp";
 import Login from "pages/login/Login";
 import NotFound from "common/NotFound";
 import { BrowserRouter, Routes, Route } from "react-router";
