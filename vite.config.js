@@ -15,4 +15,14 @@ export default defineConfig({
       pages: "/src/pages"
     },
   },
+  build: {
+    target: 'esnext',
+    outDir: 'dist',
+    rollupOptions: {
+      output: {
+        format: 'es', // ES module output
+        entryFileNames: '[name].js',
+      }
+    }
+  }
 })
