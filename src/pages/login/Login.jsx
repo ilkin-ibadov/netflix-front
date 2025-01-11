@@ -14,7 +14,7 @@ const Login = () => {
 
   const login = async () => {
     try {
-      const response = await fetch("http://localhost:5001/api/v1/auth/login", {
+      const response = await fetch("https://ilkinibadov.com/api/v1/auth/login", {
         method: "POST",
         headers: {
           "Accept": "application/json",

@@ -14,7 +14,7 @@ const Trending = ({ scrollY }) => {
 
     const getData = async () => {
         try {
-            const response = await fetch(`http://localhost:5001/api/v1/${selectedOption.value}/trending`)
+            const response = await fetch(`https://ilkinibadov.com/api/v1/${selectedOption.value}/trending`)
             const data = await response.json()
             setData(data.content)
 

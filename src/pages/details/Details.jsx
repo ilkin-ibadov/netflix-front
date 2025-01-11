@@ -14,7 +14,7 @@ const Details = () => {
 
     const getDetails = async () => {
         try {
-            const response = await fetch(`http://localhost:5001/api/v1/${type}/${id}/details`, {
+            const response = await fetch(`https://ilkinibadov.com/api/v1/${type}/${id}/details`, {
                 headers: {
                     "Accept": "application/json",
                     "Authorization": `Bearer ${token}`
@@ -33,7 +33,7 @@ const Details = () => {
 
     const getTrailers = async () => {
         try {
-            const response = await fetch(`http://localhost:5001/api/v1/${type}/${id}/trailers`, {
+            const response = await fetch(`https://ilkinibadov.com/api/v1/${type}/${id}/trailers`, {
                 headers: {
                     "Accept": "application/json",
                     "Authorization": `Bearer ${token}`

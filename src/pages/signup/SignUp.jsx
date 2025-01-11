@@ -12,7 +12,7 @@ const SignUp = () => {
 
   const signup = async () => {
     try {
-      const response = await fetch("http://localhost:5001/api/v1/auth/signup", {
+      const response = await fetch("https://ilkinibadov.com/api/v1/auth/signup", {
         method: "POST",
         headers: {
           "Accept": "application/json",

@@ -10,7 +10,7 @@ const Similar = ({ id, type }) => {
 
     const getSimilar = async () => {
         try {
-            const response = await fetch(`http://localhost:5001/api/v1/${type}/${id}/similar`, {
+            const response = await fetch(`https://ilkinibadov.com/api/v1/${type}/${id}/similar`, {
                 headers: {
                     "Accept": "application/json",
                     "Authorization": `Bearer ${token}`

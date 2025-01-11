@@ -29,7 +29,7 @@ const Homepage = () => {
 
     const getMovies = async () => {
         try {
-            const response = await fetch(`http://localhost:5001/api/v1/movie/trending`)
+            const response = await fetch(`https://ilkinibadov.com/api/v1/movie/trending`)
             const data = await response.json()
 
             if (response.ok) {
