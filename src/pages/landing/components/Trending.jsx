@@ -2,6 +2,7 @@ import MovieCard from './MovieCard'
 import CustomSelect from './CustomSelect'
 import { useState, useEffect } from 'react'
 import Modal from './Modal'
+import ScrollButton from 'common/ScrollButton'
 
 const Trending = ({ scrollY }) => {
     const [data, setData] = useState([])
@@ -16,6 +17,7 @@ const Trending = ({ scrollY }) => {
             const response = await fetch(`http://localhost:5001/api/v1/${selectedOption.value}/trending`)
             const data = await response.json()
             setData(data.content)
+
         } catch (error) {
             console.error(error)
         }
@@ -47,8 +49,15 @@ const Trending = ({ scrollY }) => {
             <CustomSelect selectedOption={selectedOption}
                 setSelectedOption={setSelectedOption}
                 options={options} />
-            <div className='w-full flex gap-12 overflow-scroll py-5 pl-7'>
-                {data.map((item, index) => <MovieCard setSelectedItem={setSelectedItem} item={item} index={index} />)}
+                
+            <div className='relative'>
+                <ScrollButton direction="left" />
+
+                <div id='movie-card-container' className='w-full flex gap-12 overflow-scroll py-5 pl-7'>
+                    {data.map((item, index) => <MovieCard setSelectedItem={setSelectedItem} item={item} index={index} />)}
+                </div>
+
+                <ScrollButton direction="right" />
             </div>
 
             {

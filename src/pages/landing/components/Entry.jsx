@@ -7,7 +7,7 @@ const Entry = () => {
   const {t} = useTranslation()
 
   return (
-    <div className='w-full h-screen lg:h-[700px]  px-[9rem] bg-cover bg-no-repeat bg-center bg-[url("https://assets.nflxext.com/ffe/siteui/vlv3/729ce5c2-d831-436a-8c9d-f38fea0b99b3/web/AZ-en-20241209-TRIFECTA-perspective_a09d6162-5992-4ec3-a2b8-9081ca80c5b0_large.jpg")] bg-black/70 bg-blend-overlay'>
+    <div className='w-full h-screen lg:h-[700px] px-[9rem] bg-cover bg-no-repeat bg-center bg-[url("https://assets.nflxext.com/ffe/siteui/vlv3/729ce5c2-d831-436a-8c9d-f38fea0b99b3/web/AZ-en-20241209-TRIFECTA-perspective_a09d6162-5992-4ec3-a2b8-9081ca80c5b0_large.jpg")] bg-black/70 bg-blend-overlay'>
         <Navbar/>
 
         <div className='w-[580px] h-fit mx-auto pt-[150px]'>

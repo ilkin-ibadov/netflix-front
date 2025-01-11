@@ -5,9 +5,7 @@ export const themeStore = create(
     persist(
         set => (
             {
-                theme: "light",
                 token: "",
-                toggle: () => set((prevState) => ({...prevState, theme: prevState.theme === "light" ? "dark" : "light" })),
                 addToken: (token) => set((prevState) => ({...prevState, token: token })),
             }
         )
